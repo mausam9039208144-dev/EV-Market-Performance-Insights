@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EV Market Performance – Market Story</title>
+<style>
+:root{--bg:#f6f8f7;--card:#fff;--text:#14201b;--muted:#5d6b64;--line:#dfe6e2;--accent:#0f9d6b;--accent2:#1f6feb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1512;--card:#16201b;--text:#e8f0ec;--muted:#93a39a;--line:#26342d;--accent:#2fd39b;--accent2:#6aa3ff}}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+header{padding:48px 20px 28px;max-width:1100px;margin:auto}
+h1{margin:0 0 8px;font-size:clamp(1.7rem,4vw,2.5rem)}header p{margin:0;color:var(--muted);max-width:720px}
+main{max-width:1100px;margin:auto;padding:0 20px 60px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:12px 0 28px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.kpi b{display:block;font-size:1.6rem;color:var(--accent)}.kpi span{font-size:.82rem;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.card h2{margin:0 0 2px;font-size:1.05rem}.card p{margin:0 0 12px;color:var(--muted);font-size:.88rem}
+.box{position:relative;height:300px}.tall{height:360px}
+.tableau{margin-top:28px}.tableau a{color:var(--accent2)}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:24px}
+</style>
+</head>
+<body>
+<header>
+<h1>EV Market Performance – Market Story</h1>
+<p>An interactive summary of the global electric vehicle market, built from the dataset and Tableau story behind this project.</p>
+</header>
+<main>
+<section class="kpis" id="kpis"></section>
+<section class="grid">
+<div class="card"><h2>Manufacturer Sales</h2><p>Top 10 manufacturers by annual sales (millions of units)</p><div class="box"><canvas id="c1"></canvas></div></div>
+<div class="card"><h2>Battery Technology Mix</h2><p>Share of annual sales by battery type</p><div class="box"><canvas id="c2"></canvas></div></div>
+<div class="card"><h2>Regional Comparison</h2><p>Annual sales by market region (millions)</p><div class="box"><canvas id="c3"></canvas></div></div>
+<div class="card"><h2>Manufacturing Footprint</h2><p>Top 12 manufacturing countries by sales (millions)</p><div class="box"><canvas id="c4"></canvas></div></div>
+<div class="card"><h2>Annual Sales by Vehicle Type</h2><p>Sales by category (millions)</p><div class="box tall"><canvas id="c5"></canvas></div></div>
+<div class="card"><h2>Driving Range by Category</h2><p>Average range in km</p><div class="box tall"><canvas id="c6"></canvas></div></div>
+<div class="card"><h2>Customer Ratings</h2><p>Average rating (out of 5) by battery type</p><div class="box"><canvas id="c7"></canvas></div></div>
+<div class="card"><h2>Sales by Model Year</h2><p>Annual sales by model year (millions)</p><div class="box"><canvas id="c8"></canvas></div></div>
+</section>
+<section class="card tableau">
+<h2>Tableau workbook</h2>
+<p>The original story is in <code>tableau/EV_Market_Performance_Market_Story.twbx</code>. Open it in Tableau Desktop or Tableau Public. To embed the live story here, publish it to Tableau Public and paste its embed code below this section.</p>
+</section>
+</main>
+<footer>Data: 299,999 EV models, 2018–2026 · Built with Tableau and Chart.js</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const D={"kpi": {"vehicles": 299999, "sales": 2323.3, "rating": 4.09, "price": 64951, "range": 324, "mfr": 200, "countries": 10, "y0": 2018, "y1": 2026}, "mfr": {"l": ["AmpereWorks", "SurgeWorks", "CircuitWorks", "WattRides", "IonAutomotive", "CurrentMobility", "ElektraMobility", "VoltAutomotive", "VoltMobility", "VoltWorks"], "v": [13.7, 13.2, 12.9, 12.8, 12.8, 12.8, 12.7, 12.7, 12.7, 12.7]}, "battery": {"l": ["NMC", "LFP", "NCA", "Sodium-Ion", "Solid-State"], "v": [783.3, 744.5, 400.9, 229.1, 165.5]}, "region": {"l": ["South Asia", "Latin America", "North America", "Asia Pacific", "Europe", "Middle East", "Africa"], "v": [335.3, 334.4, 332.6, 332.2, 330.1, 329.7, 329.0]}, "country": {"l": ["China", "India", "Vietnam", "UK", "USA", "South Korea", "France", "Germany", "Sweden", "Japan"], "v": [237.4, 235.6, 235.3, 234.2, 232.7, 232.5, 230.6, 230.3, 228.0, 226.7]}, "category": {"l": ["Two-Wheeler Scooter", "Sedan", "Hatchback", "Compact SUV", "Three-Wheeler", "Crossover", "Luxury Sedan", "Micro City Car", "Full-size SUV", "Luxury SUV", "Van / MPV", "Sports Car", "Electric Truck", "Pickup Truck", "Electric Bus"], "v": [259.6, 231.7, 231.0, 229.5, 200.2, 197.1, 174.1, 173.3, 171.7, 143.5, 143.1, 113.9, 19.5, 19.4, 15.7]}, "rating": {"l": ["Pickup Truck", "Van / MPV", "Micro City Car", "Sports Car", "Full-size SUV", "Two-Wheeler Scooter", "Compact SUV", "Luxury Sedan", "Crossover", "Sedan", "Electric Bus", "Three-Wheeler", "Luxury SUV", "Electric Truck", "Hatchback"], "v": [4.094, 4.092, 4.089, 4.089, 4.088, 4.088, 4.088, 4.088, 4.087, 4.087, 4.086, 4.086, 4.085, 4.084, 4.084]}, "range": {"l": ["Luxury Sedan", "Luxury SUV", "Full-size SUV", "Sedan", "Crossover", "Pickup Truck", "Sports Car", "Compact SUV", "Van / MPV", "Hatchback", "Electric Bus", "Electric Truck", "Micro City Car", "Three-Wheeler", "Two-Wheeler Scooter"], "v": [550.0, 525.0, 475.0, 429.0, 395.0, 390.0, 375.0, 370.0, 319.0, 280.0, 270.0, 225.0, 150.0, 130.0, 105.0]}, "year": {"l": ["2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"], "v": [256.8, 264.2, 255.7, 253.9, 257.8, 260.1, 263.4, 255.7, 255.7]}, "ratingBattery": {"l": ["Solid-State", "NCA", "LFP", "Sodium-Ion", "NMC"], "v": [4.091, 4.09, 4.088, 4.086, 4.085]}};
+const k=D.kpi,fmt=n=>n.toLocaleString("en-US");
+document.getElementById("kpis").innerHTML=[
+[fmt(k.sales)+"M","Total annual sales (units)"],[fmt(k.vehicles),"Vehicle models"],[k.rating,"Avg customer rating"],
+["$"+fmt(k.price),"Avg price"],[k.range+" km","Avg range"],[k.mfr,"Manufacturers"]
+].map(x=>`<div class="kpi"><b>${x[0]}</b><span>${x[1]}</span></div>`).join("");
+const css=getComputedStyle(document.documentElement);
+const pal=["#0f9d6b","#1f6feb","#f5a524","#e5484d","#8e4ec6","#12a5b8","#e93d82","#7c8a82"];
+Chart.defaults.color=css.getPropertyValue("--muted").trim()||"#5d6b64";
+Chart.defaults.font.family="system-ui,sans-serif";
+const base={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}};
+function bar(id,d,o={}){new Chart(id,{type:"bar",data:{labels:d.l,datasets:[{data:d.v,backgroundColor:o.color||pal[0],borderRadius:4}]},
+options:{...base,indexAxis:o.h?"y":"x",scales:{[o.h?"x":"y"]:{beginAtZero:!o.min,min:o.min}}}});}
+bar("c1",D.mfr,{h:1});
+new Chart("c2",{type:"doughnut",data:{labels:D.battery.l,datasets:[{data:D.battery.v,backgroundColor:pal,borderWidth:0}]},options:{...base,plugins:{legend:{display:true,position:"right"}}}});
+bar("c3",D.region,{color:pal[1]});
+bar("c4",D.country,{h:1,color:pal[2]});
+bar("c5",D.category,{h:1,color:pal[0]});
+bar("c6",D.range,{h:1,color:pal[5]});
+bar("c7",D.ratingBattery,{color:pal[4],min:4.0});
+new Chart("c8",{type:"line",data:{labels:D.year.l,datasets:[{data:D.year.v,borderColor:pal[0],backgroundColor:"rgba(15,157,107,.15)",fill:true,tension:.3}]},options:base});
+</script>
+</body>
+</html>
