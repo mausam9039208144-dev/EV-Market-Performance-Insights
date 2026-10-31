@@ -7,7 +7,8 @@ An interactive EV market analysis built with Tableau Public, a Python Flask app 
 - [Tableau Public Dashboard](https://public.tableau.com/app/profile/mausam.kumar.pandit/viz/EV_Market_Performance_Market_Story_2026-10-25/EVExecutiveDashboard)
 - [Tableau Public Story](https://public.tableau.com/app/profile/mausam.kumar.pandit/viz/EV_Market_Performance_Green_Executive_Refresh/Story2)
 - [Project Website](https://mausam9039208144-dev.github.io/EV-Market-Performance-Insights/)
-- Dataset: [paste dataset link here]
+- Dataset 1 : https://drive.google.com/file/d/17fiwDpp6AI8e2nHt96FiUNbDdMgN_B3R/view?usp=share_link
+- Dataset 2 : https://drive.google.com/file/d/1ttOOcHzEwyGiciyBILNzTp4kxZ7t_F1f/view?usp=share_link  
 
 ## What this project covers
 
