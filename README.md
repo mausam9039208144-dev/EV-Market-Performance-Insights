@@ -24,8 +24,8 @@ An interactive EV market analysis built with Tableau Public, a Python Flask app 
 
 The analysis uses an electric vehicle market dataset, listed in the project links above. For this repository the data is stored in two compressed files:
 
-- `compressed_data.csv.gz`: dataset part 1 ([add rows] rows, [add columns] columns)
-- `compressed_data-2.csv.gz`: dataset part 2 ([add rows] rows, [add columns] columns)
+- `compressed_data.csv.gz`: dataset part 1 
+- `compressed_data-2.csv.gz`: dataset part 2 
 
 To use them, extract the files first:
 
