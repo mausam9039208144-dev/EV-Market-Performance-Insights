@@ -1,85 +1,97 @@
 # Electric Vehicle Market Performance & Insights
 
-An interactive EV market analysis built with Tableau Public, a Python Flask app and a static project website. The dashboard turns the EV market dataset into KPIs, charts and a guided story, so manufacturers, regions and battery types can be compared quickly. The original dataset is never modified.
+An EV market analytics project that presents electric vehicle market information through Tableau dashboards, a guided Tableau Story, and web-based project pages.
 
-## Project links
+**Author:** Mausam Kumar Pandit  
+**GitHub Repository:** https://github.com/mausam9039208144-dev/EV-Market-Performance-Insights
 
-- [Tableau Public Dashboard](https://public.tableau.com/app/profile/mausam.kumar.pandit/viz/EV_Market_Performance_Market_Story_2026-10-25/EVExecutiveDashboard)
-- [Tableau Public Story](https://public.tableau.com/app/profile/mausam.kumar.pandit/viz/EV_Market_Performance_Green_Executive_Refresh/Story2)
-- [Project Website](https://mausam9039208144-dev.github.io/EV-Market-Performance-Insights/)
-- Dataset 1 : https://drive.google.com/file/d/17fiwDpp6AI8e2nHt96FiUNbDdMgN_B3R/view?usp=share_link
-- Dataset 2 : https://drive.google.com/file/d/1ttOOcHzEwyGiciyBILNzTp4kxZ7t_F1f/view?usp=share_link  
+## Project Overview
 
-## What this project covers
+The project explores electric vehicle market data and presents insights into manufacturers, battery technologies, vehicle categories, regional performance, customer ratings, and driving range.
 
-- KPI cards for sales, customer rating, range, battery capacity and CO₂ savings. [edit to match your dashboard]
-- Interactive charts comparing manufacturers, battery types, regions, vehicle categories and manufacturing countries. [edit to match your dashboard]
-- Filters for manufacturer, battery type, region, category and model year, with tooltips, labels and legends.
-- A Tableau Story that walks through the main findings step by step.
-- A Flask app (`app.py`) that processes the data behind the dashboard.
-- A static project website (`index.html`) that presents the dashboard and story online.
-- A compressed copy of the dataset, stored as `.csv.gz` files, so it fits within GitHub's upload limits.
+The repository includes the project's HTML pages, dashboard and story resources, dataset-related entries, and final project report.
 
-## Data source
+## Live Project Links
 
-The analysis uses an electric vehicle market dataset, listed in the project links above. For this repository the data is stored in two compressed files:
+- **Project Website (Netlify):** https://elaborate-pixie-a68354.netlify.app/
+- **GitHub Pages:** https://mausam9039208144-dev.github.io/EV-Market-Performance-Insights/
+- **GitHub Repository:** https://github.com/mausam9039208144-dev/EV-Market-Performance-Insights
 
-- `compressed_data.csv.gz`: dataset part 1 
-- `compressed_data-2.csv.gz`: dataset part 2 
+## Tableau Dashboard and Story
 
-To use them, extract the files first:
+The Tableau Public deliverables provide interactive views of the EV market.
 
-```
-gunzip -k compressed_data.csv.gz
-gunzip -k compressed_data-2.csv.gz
-```
+- **Executive Dashboard:** https://public.tableau.com/app/profile/mausam.kumar.pandit/viz/EV_Market_Performance_Market_Story_2026-10-25/EVExecutiveDashboard
+- **Tableau Story:** https://public.tableau.com/app/profile/mausam.kumar.pandit/viz/EV_Market_Performance_Green_Executive_Refresh/Story2
 
-Duplicate rows are removed while the data is processed, and the source files are left unchanged. Missing values are skipped in sums and averages instead of being counted as zero. Sales and CO₂ figures are totals of the dataset fields, so confirm what each row represents before presenting them as market-wide numbers. Check the dataset's license terms before sharing the data publicly.
+## Repository Structure
 
-## Run locally
+The following entries are currently visible in the repository root:
 
-Use Python 3.11 or later. From the project folder, open a terminal:
+| Filename | Purpose |
+|---|---|
+| `EV Market Performance.html` | Main EV Market Performance HTML project page |
+| `index-9.html` | Additional HTML website page |
+| `Live Dashboard Of Electric Vehilces` | Dashboard-related project resource |
+| `Live Story For Ev Vehicle` | Tableau Story-related project resource |
+| `EV_Market_Performance_Final_Report-3-2.pdf` | Final project report in PDF format |
+| `Dataset Original` | Original dataset-related repository entry |
+| `Dataset Modified` | Modified dataset-related repository entry |
+| `README.md` | Project documentation |
 
-```
-python -m venv .venv
-# Windows
-.\.venv\Scripts\Activate.ps1
-# macOS / Linux
-source .venv/bin/activate
+*Note: The dashboard and story resource entries are listed using their exact repository names. Their file extensions and internal formats are not inferred.*
 
-pip install flask pandas
-python app.py
-```
+## Project Features
 
-Open `http://127.0.0.1:5000` in your browser. Keep the terminal open while you use the app and press `Ctrl+C` to stop it. Chart libraries and fonts load from CDNs, so an internet connection is needed for the visuals.
+- Visual exploration of electric vehicle market data.
+- Tableau dashboard and guided Story.
+- Analysis of manufacturer, battery, regional, and vehicle-category dimensions.
+- HTML pages for presenting the project.
+- Published links for accessing the project online.
+- PDF documentation describing the project and its development.
 
-## Tableau
+## Technologies
 
-The packaged workbook `EV_Market_Performance_Market_Story.twbx` holds the worksheets, executive dashboard, filters and story. Open it in Tableau Desktop, or view the published versions on Tableau Public:
+- **Data Visualization:** Tableau Desktop and Tableau Public
+- **Web Development:** HTML, CSS, and JavaScript
+- **Version Control:** Git and GitHub
+- **Publishing:** GitHub Pages and Netlify
 
-- [Executive Dashboard](https://public.tableau.com/app/profile/mausam.kumar.pandit/viz/EV_Market_Performance_Market_Story_2026-10-25/EVExecutiveDashboard)
-- [Green Executive Refresh, Story 2](https://public.tableau.com/app/profile/mausam.kumar.pandit/viz/EV_Market_Performance_Green_Executive_Refresh/Story2)
+## How to View the Project
 
-The extract inside a Tableau Public workbook is publicly visible. Flask is a separate companion app and does not replace the Tableau Public deliverable.
+1. Open the live project website using the Netlify link above.
+2. Explore the HTML pages available in the GitHub repository.
+3. Open the Tableau Executive Dashboard to explore the visualizations.
+4. Open the Tableau Story to follow the analysis.
+5. Refer to `EV_Market_Performance_Final_Report-3-2.pdf` for the project documentation.
 
-## Project website
+## Dataset and Data Interpretation
 
-`index.html` is a static page that embeds the published Tableau dashboard and story. To publish it with GitHub Pages, go to Settings, then Pages, then Build and deployment, choose Deploy from a branch, and select `main` and the root folder. GitHub Pages hosts only static files, so the Flask app still has to be run locally or on a Python-capable host.
+The project uses electric vehicle market data. Interpret sales, ratings, range, battery capacity, and other measures according to the dataset's definitions and units.
 
-## Repository map
+Before publishing or redistributing the dataset, check its source and licensing terms. Published Tableau extracts may be publicly accessible.
 
-```
-EV_Market_Performance_Market_Story.twbx   Tableau workbook (dashboard, filters, story)
-app.py                                    Flask routes and data processing
-index.html                                Static project website
-Website for EV Market Page                Website files for the EV market page
-compressed_data.csv.gz                    Compressed dataset, part 1
-compressed_data-2.csv.gz                  Compressed dataset, part 2
-README.md                                 Project documentation
-```
+## Limitations
+
+- Results depend on the quality, coverage, and definitions of the source dataset.
+- Public Tableau content requires an internet connection to access.
+- Static HTML hosting does not execute a Python backend.
+- Current website and dashboard behavior should be tested after updates.
+
+## Future Improvements
+
+- Add forecasting of EV sales.
+- Explore machine-learning-based market segmentation.
+- Incorporate additional data sources, such as charging infrastructure and price trends.
+- Improve the website's interactive visualizations and documentation.
+- Add verified screenshots and testing results.
 
 ## Author
-GitHub: [mausam9039208144-dev](https://github.com/mausam9039208144-dev)
 
-## The Website Link
-Netlify: https://elaborate-pixie-a68354.netlify.app
+**Mausam Kumar Pandit**
+
+GitHub: https://github.com/mausam9039208144-dev
+
+---
+
+*Electric Vehicle Market Performance & Insights — Academic Data Analytics Project*
